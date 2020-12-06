@@ -8,23 +8,23 @@ import (
 )
 
 func CountQuestions(lines []string) int {
-	questions := make(map[string]bool)
+	questions := make(map[rune]bool)
 	for _, line := range lines {
 		for _, question := range line {
-			questions[string(question)] = true
+			questions[question] = true
 		}
 	}
 	return len(questions)
 }
 
 func CountQuestions2(lines []string) int {
-	questions := make(map[string]int)
+	questions := make(map[rune]int)
 	for _, line := range lines {
 		for _, question := range line {
-			if _, ok := questions[string(question)]; !ok {
-				questions[string(question)] = 1
+			if _, ok := questions[question]; !ok {
+				questions[question] = 1
 			} else {
-				questions[string(question)] = questions[string(question)] + 1
+				questions[question]++
 			}
 		}
 	}
